@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Skin>
+	<Imports>
+		<Import url="@neutralbase"/>
+		<Import url="@neutraldesign"/>
+	</Imports>
+		
+	<Styles>
+		<Style name="Button" inherit="Standard.Button"/>
+		<Style name="Tree" inherit="Standard.TreeView"/>
+		<Style name="Output" inherit="Tree"/>
+	</Styles>
+ 
+	<Forms>
+		<!-- ******************************************************************************************** -->
+        <!-- Application Window -->
+        <!-- ******************************************************************************************** -->
+
+		<Form name="ApplicationWindow" sizelimits="250,400,2000,2000" attach="all">
+			<using controller="object://ccltestapp/TestManager">
+				<Vertical attach="all">
+					<?defined mobileapp?>
+						<Space height="20"/>
+					<?defined?>
+					<Horizontal spacing="5" margin="0">
+						<Button command.category="Unit Test" command.name="Run Selected" title="Run Selected" style="Button"/>
+						<Button command.category="Unit Test" command.name="Run All" title="Run All" style="Button"/>
+						<Button command.category="Unit Test" command.name="Cancel" title="Cancel" style="Button"/>
+					</Horizontal>
+					<ProgressBar name="progress" width="700" height="20" options="horizontal" attach="left right"/>
+					<Horizontal attach="all" size="0,45,700,500" spacing="0" margin="0">
+						<TreeView name="testTree" width="300" height="500" options="selection selectfullwidth" scrolloptions="border vertical notiledlayers" attach="all" style="Tree"/>
+						<Divider size="0,0,8,500" sizelimits="5,0,10,100000" attach="all"/>
+						<ListView name="resultList" width="400" height="500" options="header selection" layerbacking="optional" scrolloptions="border horizontal vertical notiledlayers " attach="all" style="Output"/>
+					</Horizontal>
+				</Vertical>
+			</using>
+		</Form>
+	
+		<!-- ******************************************************************************************** -->
+        <!-- About -->
+        <!-- ******************************************************************************************** -->
+		
+		<Form name="AboutApplication" title="About $APPNAME" width="300" height="100">
+			<Vertical>
+				<Label title="$APPNAME"/>
+				<Label title="&copy; $COPYYEAR $CCLAUTHOR"/>
+			</Vertical>
+		</Form>
+		
+	</Forms>
+		
+</Skin>
+
